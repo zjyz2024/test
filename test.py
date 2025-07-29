@@ -1,4 +1,6 @@
 import os
+import random
+import time
 
 from playwright.sync_api import sync_playwright
 
@@ -10,6 +12,13 @@ PROXY = None  # 可设置为 "socks5://127.0.0.1:1080" 或 None
 
 URL = os.getenv("URL", "")
 
+
+
+
+
+
+
+# # 下面执行你的自动购买逻辑
 def run():
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -66,4 +75,7 @@ def run():
         page.wait_for_timeout(10000)
         browser.close()
 
+wait_minutes = random.randint(0, 5)
+print(f"随机等待 {wait_minutes} 分钟再开始执行任务")
+time.sleep(wait_minutes * 60)
 run()
