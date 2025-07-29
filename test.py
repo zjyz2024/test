@@ -75,7 +75,7 @@ def run():
         page.wait_for_timeout(10000)
         browser.close()
 
-wait_minutes = random.randint(0, 5)
-print(f"随机等待 {wait_minutes} 分钟再开始执行任务")
-time.sleep(wait_minutes * 60)
+wait_minutes = random.randint(0, 300)
+print(f"随机等待 {wait_minutes} seconds再开始执行任务")
+time.sleep(wait_minutes)
 run()
