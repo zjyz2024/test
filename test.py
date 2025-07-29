@@ -45,8 +45,8 @@ def run():
         # 点击购买按钮（套餐ID为8）
         # 3 days 80
         # 1 days 90
-        page.wait_for_selector('a[onclick="buy(\'9\',0)"]', timeout=5000)
-        page.click('a[onclick="buy(\'9\',0)"]')
+        page.wait_for_selector('a[onclick="buy(\'8\',0)"]', timeout=5000)
+        page.click('a[onclick="buy(\'8\',0)"]')
 
         # ✅ 等待弹出确认按钮加载并点击“确定”
         page.wait_for_selector('#coupon_input', timeout=5000)
