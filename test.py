@@ -36,9 +36,11 @@ def run():
         # 等待登录后跳转（如 dashboard 或首页）
         page.wait_for_load_state("networkidle")
 
-        # 签到
-        page.wait_for_selector('#checkin', timeout=5000)
-        page.click('#checkin')
+        el = page.query_selector('#checkin')
+        if el:
+            el.click()
+        else:
+            pass  # 没找到就跳过，不打印也不报错
 
         # 点击“套餐购买”链接
         page.click("a:has-text('套餐购买')")
