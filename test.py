@@ -63,7 +63,7 @@ def run():
         page.click('#order_input')
         print("已点击第二个确认按钮（order_input）")
 
-        page.wait_for_timeout(5000)
+        page.wait_for_timeout(10000)
         browser.close()
 
 run()
