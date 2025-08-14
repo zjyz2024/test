@@ -14,7 +14,7 @@ PROXY = None  # 可设置为 "socks5://127.0.0.1:1080" 或 None
 def run():
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=False, # True=无窗口 False=有窗口 
+            headless=True, # True=无窗口 False=有窗口 
             proxy={"server": PROXY} if PROXY else None
         )
         context = browser.new_context()
