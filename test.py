@@ -14,7 +14,7 @@ PROXY = None  # 可设置为 "socks5://127.0.0.1:1080" 或 None
 def run():
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=True, # True=无窗口 False=有窗口 
+            headless=False, # True=无窗口 False=有窗口 
             proxy={"server": PROXY} if PROXY else None
         )
         context = browser.new_context()
@@ -45,6 +45,7 @@ def run():
             page.click('button#reactive')
             page.wait_for_load_state("networkidle")
             print("✅ 已取消账户保护。")
+            page.click("a:has-text('用户面板')")
 
         # 自动签到
         el = page.query_selector('#checkin')
@@ -85,7 +86,3 @@ def random_delay():
 
 random_delay()
 run()
-
-
-# <input class="form-control maxwidth-auth" id="email" type="text">
-# <button id="reactive" type="submit" class="btn btn-block btn-brand waves-attach waves-light waves-effect">取消账户保护</button>
