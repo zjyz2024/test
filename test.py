@@ -25,6 +25,7 @@ def run():
 
         html = page.content()                # <html>…</html>
         print(html)
+        sleep(20)
 
         # 填写邮箱和密码
         page.fill('input[name="Email"]', EMAIL)
