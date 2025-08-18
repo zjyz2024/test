@@ -23,6 +23,9 @@ def run():
         # 打开登录页面
         page.goto(URL)
 
+        html = page.content()                # <html>…</html>
+        print(html)
+
         # 填写邮箱和密码
         page.fill('input[name="Email"]', EMAIL)
         page.fill('input[name="Password"]', PASSWORD)
